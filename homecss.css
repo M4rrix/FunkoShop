@@ -1,0 +1,334 @@
+
+
+:root { /*similar a la etiqueta html pero la usamos para diferenciar que en el html se ponen esilos globales y aca dentro en el root se ponen las variables de css, es un pseudonimo de la etiqueta html*/
+     /*siempre para declarar una variable se empieza con guion guion = --nombre-especificacion:*/
+    
+     /*palette*/
+    --primary-solid: #FF3333; /*color primario solido pq es el real de la paletta*/
+    --primary-900:  rgba(255, 51, 51, 0.9); /*mismo color que el de arriba pero con un 90% de transparencia*/
+    --primary-500:  rgba(255, 51, 51, 0.5); /*50%*/
+    --primary-300:  rgba(255, 51, 51, 0.3); /*30%*/
+
+    --secundary-solid: #1D84B5;
+    --secundary-900: rgba(29, 132, 181, 0.9);
+    --secundary-500: rgba(29, 132, 181, 0.5);
+    --secundary-300: rgba(29, 132, 181, 0.3);
+
+    --dark-solid: #1F1F1F;
+    --dark-900: rgba(31, 31, 31, 0.9);
+    --dark-500: rgba(31, 31, 31, 0.5);
+    --dark-300: rgba(31, 31, 31, 0.3);
+
+    --dark-bg-solid: #30343F; /*background*/
+    --light-bg-solid: #FAFAFF; /*background*/
+    --light-font-solid: #ffffff;
+
+    /*Typography*/
+    --basse-font: font-family: 'Inter', sans-serif; /*la de base*/
+    --alternative-font: font-family: 'Raleway', sans-serif; /*la alternativa*/
+
+    /*Font size- buena pratica usar font size con em*/
+    --font-display: 4.6em; /*igual a 46px*/
+    --font-jumbo: 3.8em;
+    --font-large: 2.4em;
+    --font-mediun: 1.8em;
+    --font-small: 1.6em;
+    --font-xsmall: 1.4em;
+
+    /*Spacing- buena pratica usar spacing con rem*/
+    --spacing-128: 12.8rem; /*vale 10px*/
+    --spacing-68: 6.8rem;
+    --spacing-36: 3.6rem;
+    --spacing-28: 2.8rem;
+    --spacing-24: 2.4rem;
+    --spacing-20: 2.0rem;
+    --spacing-16: 1.6rem;
+    --spacing-12: 1.2rem;
+    --spacing-8: 0.8rem;
+}   
+
+
+*, 
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*determina como se comportan los margenelos rs y ellenos en nuestro elementos */
+}
+
+html {
+    font-family: var(--basse-font);
+    font-size: 62.5%; /*de esta forma ponemos el tamaño de la fuente por defecto a 10 px*/
+    color: var(--dark-solid);
+}
+
+a {
+    text-decoration: none;
+    font-family: var(--alternative-font);
+    color: inherit;
+}
+
+header, 
+footer {
+    font-family: 'Raleway', sans-serif;
+   
+}
+
+ul, ol {
+    list-style-type: none;
+}
+
+p {
+    font-size: 1.8em;
+}
+
+img {
+    width: 100%; /*con esto hacemos que todas las imagenes tengan el 100% del ancho de su contenedor padre */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/*header*/
+
+header {
+    background-color: var(--dark-bg-solid); 
+    padding: var(--spacing-36);
+}
+
+.navbar {
+    display: flex; /*para posicionar el nav al costado*/
+    justify-content: space-between; /*para separar el logo del menu*/
+    align-items: center; /*para centrar el logo y el menu*/
+    
+}
+
+.navbar__logo {
+    max-width: 300px; 
+}
+
+.navbar__menu {
+    display: flex;
+    align-items: center; /*para que esten totalmente centreados*/
+    gap: var(--spacing-20); /*lo definimos en la variable de arriba, un espacio de 20*/
+
+}
+
+.navbar__link {
+    font-size: var(--font-mediun);
+    padding: var(--spacing-8) var(--spacing-16);
+    display: inline-block;
+    transition: background .3s ease-in-out;
+    position: relative; /*me vaa servir para que el hijo submenu sea relativo y se coloque abajo*/
+}
+
+.navbar__link:hover {
+    background-color: var(--primary-900); /*para darle el fondo a los enlaces*/
+}
+
+.with-icon { /*para centar los iconos*/
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-8); /*para separar el icono 8px*/
+}
+
+.with-submenu:hover .submenu{
+    display: block;
+} /*para que aparezca el menu desplegable al pasar el mouse, o sea si te hago hover en el menu quiero que aparezca el submenu por eso el display block*/
+
+.submenu {
+    display: none; /*para que no aparezca el submenu todo el tiempo*/
+    width: 300px;
+    position: absolute;
+    background-color: var(--dark-bg-solid);
+    z-index: 3; /*uno mas que el z index de la imagen pq sino queda tapado*/
+}
+
+.submenu__item {
+    display: block; /*para darle tamaño*/
+    padding: var(--spacing-8) var(--spacing-16);
+    font-size: var(--font-mediun);
+    transition: background .3s ease-in-out;
+}
+
+.submenu__item:hover {
+    background-color: var(--primary-500);
+}
+
+/*termina header*/
+
+/*MAIN*/
+.container2 {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  
+}
+.card {
+    position: relative;
+    flex-direction: column;
+    gap: var(--spacing-8);
+    
+    
+}
+
+.div1 {
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    margin: auto;
+    gap: var(--spacing-8);
+}
+h1 {
+    font-size: var(--font-large);
+}
+
+.span1 {
+    font-size: var(--font-xsmall);
+    font-weight: 200;
+}
+
+form {
+    justify-content: space-between;
+}
+
+.button-, .buttonMore {
+    padding: var(--spacing-8);
+    border: none;
+    background-color: var(--dark-bg-solid);
+    color: var(--light-bg-solid);
+}
+
+.button0 {
+    padding: var(--spacing-8) var(--spacing-12);
+    background-color: var(--light-bg-solid);
+    color: var(--dark-bg-solid);
+}
+
+.button-agregar {
+    background-color: #FF3333;
+    color: #FAFAFF;
+}
+
+.button-agregar {
+    padding: var(--spacing-8);
+}
+
+
+
+.span2, a {
+    color: var(--secundary-solid);
+    font-weight: 500;
+}
+
+/* SLIDER */
+
+.slider {
+    display: flex; /*pq el titulo y el contenido va a estar en columna*/
+    flex-direction: column;
+    gap: var(--spacing-36); /*para separar el titulo de los elementos*/
+    margin: var(--spacing-68) auto; /*para darle un margen y que este separado*/
+}
+
+.slider.title {
+    font-family: var(--alternative-font);
+    font-size: var(--font-jumbo);
+    text-transform: uppercase;
+}
+
+
+.slider__items {
+    display: flex; /*es para que los elementos se posicionen uno al lado del otro*/
+    gap: var(--spacing-24); /*para que las tarjetas no esten pegadas le damos un espacio*/
+}
+
+.slider__title {
+    text-align: justify;
+    font-size: var(--font-large);
+}
+
+.card-item__cover{
+    display: flex; /*para que nos ponga una imagen al lado de la otra y cuando hagamos el hover no se cambie el tamaño de la caja*/ 
+    position: relative; /*para que el position del tag se ubique dentro de las tarjetas y no dentro dle body*/
+}
+
+.card-item__tag {
+    font-size: var(--font-xsmall);
+    text-transform: uppercase;
+    background-color: var(--primary-solid);
+    color: var(--light-font-solid);
+    padding: var(--spacing-8) var(--spacing-12); /*arriba y abajo / 12 a los costados*/
+    position: absolute; /*para que el backgroun solo este en su tamaño y no ocupe toda la pantalla*/
+    right: 0; /*para que el nuevo este totalmente a la derecha*/
+
+}
+
+.card-item__cover img {
+    animation: fade 1.7s;
+} /*esto traba con el key frames y le da la animacion a la imagen par que cuando agas hover aparezca con un 1.7 segundos*/
+
+.card-item__img--back {
+    display: none;
+}  /*mientras yo no haga hover en la imagen no quiero que se vea*/
+
+.card-item__cover:hover .card-item__img--back {
+    display: block;
+} /*cuando haga hover en la imagen quiero que apareca la imagen de atras*/
+
+.card-item__cover:hover .card-item__img--front {
+    display: none;
+} /*y mientras aparece la imagen de atras quiero que la de adelante no aparezca*/
+
+
+.card-item__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-12);
+    padding: var(--spacing-16); /*para que el texto tenga un relleno y quede distanciado del borde */
+}
+
+.card-item__licence {
+    font-size: var(--font-small);
+    font-weight: 500;
+}
+.card-item__name {
+    font-size: var(--font-mediun);
+    font-weight: 700;
+}
+.card-item__price {
+    font-size: var(--font-small);
+
+}
+.card-item__promo {
+    font-size: var(--font-small);
+    color: var(--secundary-solid);
+    font-weight: 700;
+}
+
+/* FOOTER */
+
+.footer {
+    background-color: var(--dark-bg-solid);
+    padding: var(--spacing-68); /*relleno para el contenido dentro del footer*/
+}
+
+.footer__copy {
+    margin-top: var(--spacing-36); /*para separarlo del bord de arriba*/
+    text-align: center;
+
+}
+
+/* ANIMATIONS */
+
+@keyframes fade {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 1;
+    }
+} /*para darle animacion a las imagenes*/
